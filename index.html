@@ -1,0 +1,63 @@
+<html>
+	<head>
+		<title> Birthday List Tracker </title>
+		<style>
+			*{ font- family: Arial; font-size:40px;}
+			body { background-color:azure; }
+			.btn { Width:30%; border-radius:30px; }
+		</style>
+		<script>
+			let frnds = ["Muskan","Hiten"];
+			function operation()
+			{
+				event.preventDefault();
+				let action = document.activeElement.value;
+				if (action == "add")
+				{
+					let name = prompt("Enter Friend name ");
+					if (name != "")
+						frnds.push(name);
+					show();
+				}
+				else if (action == "REM")
+				{
+					let name = prompt("Enter friend name");
+					let i = frnds.indexOf(name);
+					if (i==-1)
+						alert(name + " Not found");
+					else 
+						frnds.splice(i,1);
+					show();
+
+
+				}
+			}
+			
+			function show()
+			{
+				let ans = document.getElementById("ans");
+				ans.innerHTML = frnds;
+
+			}	
+		</script>
+	</head>
+	<body>
+	<center>
+		<h1> Aditya's Birthday List App </h1>
+		<form onsubmit="operation()" >
+			<input type ="submit"  value="add" class ="btn" />
+			<input type ="submit"  value="REM" class ="btn"/>
+		</form>
+		<h2 id = "ans" />
+
+		<script>
+			show();
+		</script>
+
+
+
+
+
+	</center>
+	</body>
+</html>
